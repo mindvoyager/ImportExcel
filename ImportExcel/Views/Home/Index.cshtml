@@ -1,0 +1,11 @@
+﻿@model ImportExcel.Models.ReadExcel
+@{
+    ViewBag.Title = "Import Excel";
+}
+<h4>@ViewBag.Result</h4>
+@using (Html.BeginForm("Index", /*not correct*/"Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.TextBoxFor(model => model.File, new { type = "file"})
+    <button id="submitBuutton" type="submit" class="btn-primary">Submit</button>
+    @Html.ValidationMessageFor(model => model.File)
+}
